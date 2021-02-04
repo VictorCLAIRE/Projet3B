@@ -22,13 +22,17 @@ ob_start();
 <h1 class="d-flex justify-content-center">Suppression de l'ampoule validée</h1>
 <!--Récupération de l'ID dans l'URL et lecture du produit by ID-->
 <?php
-$ID = $_GET['ID'];
-$req = $db->prepare('DELETE FROM `ampoules` WHERE `id_produit`= ?');
+$ID = $_POST['id_ampoule_supprime'];
+$req = $db->prepare('DELETE FROM `ampoules` WHERE `id_ampoule`= ?');
 $req->execute(array($ID));
 ?>
     <div class="btnBack"> 
         <a href="general.php" class="btn btn-primary">Retour Accueil</a>
-    </div>    
+    </div>   
+
+<?php
+  header('Location: http://localhost/Projet_3B/general.php');
+?>
 
 <?php
 //$content de template.php definis ce qui ce trouve dans le body

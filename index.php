@@ -1,8 +1,3 @@
-<style>
-#login-form{
-    border: solid black 2px;
-}
-</style>
 <?php
 //Ici $title de template.php dans la balise <title><?= $title ></title>
 $title = "Maintenance Ampoule";
@@ -27,7 +22,7 @@ ob_start();
 <body>
     <h1 class="text-center">Veuillez vous connecter</h1>
     <div class="text-center" id="login-form">
-        <form action="general.php" method="POST">
+        <form action="Connexion.php" method="POST">
             <div class="form-group"> 
                 <label for="email">Votre email:</label>
                 <input type="email" id="email" name="email">

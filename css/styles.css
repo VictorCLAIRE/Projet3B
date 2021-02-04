@@ -13,3 +13,6 @@ body{
     border-top: solid grey 1px;
     text-align: center;
 }
+#login-form{
+    border: solid black 2px;
+}
