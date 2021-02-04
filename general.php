@@ -198,6 +198,11 @@ foreach($db->query("SELECT * FROM ampoules INNER JOIN table_position ON ampoules
                 </div>
             </div>
             <div class="col-1 container">
+            <div>
+            <?php
+            echo $row['id_ampoule'];
+            ?>
+            </div>
             <a class="btn btn-success m-1" data-toggle="modal" data-target="#modificationAmpoule<?= $row['id_ampoule'] ?>">Modifier</a>
                  
                  <!------------------------------------------ Modal UPDATE -------------------->
@@ -238,6 +243,7 @@ foreach($db->query("SELECT * FROM ampoules INNER JOIN table_position ON ampoules
                                 
                                 <div class="form-group">
                                     <label for="position">Position de l'ampoule</label>
+                                    
                                     <select class="form-control" required type="text" id="position" name="position_modifie">
                                         <option value="<?= $row['position']?>"><?= $row['position']?></option>
                                     <?php
@@ -254,7 +260,7 @@ foreach($db->query("SELECT * FROM ampoules INNER JOIN table_position ON ampoules
                                     <label for="prix">Prix de l'ampoule</label>
                                     <input value="<?= $res['prix']?>" class="form-control" required type="text" id="prix" name="prix_modifie"  >
                                 </div>
-                                <button type="submit" class="btn btn-success">Modifier les données de l'ampoule</button>
+                                <button type="submit" class="btn btn-success">Modifier les données de l'ampoule N°<?= $row['id_ampoule'] ?></button>
                             </form>
                             </div>
                             <div class="modal-footer">
@@ -264,25 +270,32 @@ foreach($db->query("SELECT * FROM ampoules INNER JOIN table_position ON ampoules
                     </div>
                 </div>
             </div>
+       
             <div class="col-2 container">
+            <div>
+            <?php
+            echo $row['id_ampoule'];
+            ?>
+            </div>
             <a class="btn btn-warning m-1" href="EnregistrementSuppression.php" data-toggle="modal" data-target="#suppressionAmpoule<?= $row['id_ampoule'] ?>">>Supprimer</a>
+                 <!------------------------------------------ Modal DELETE -------------------->
             <div class="modal fade" id="suppressionAmpoule<?= $row['id_ampoule'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Détail de l'ampoule N° <?= $row['id_ampoule'] ?></h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Suppresion de l'ampoule N° <?= $row['id_ampoule'] ?></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                            <form action="ValidationModification.php" method="post">
+                            <form action="EnregistrementSuppression.php" method="post">
                                 <div class="form-group">
                                     <label for="id_ampoule"></label>
-                                    <input type="hidden" value="<?= $row['id_ampoule'] ?>" class="form-control" required type="text" id="id_ampoule" name="id_ampoule_modifie"  >
+                                    <input type="hidden" value="<?= $row['id_ampoule'] ?>" class="form-control" required type="text" id="id_ampoule" name="id_ampoule_supprime"  >
                                 </div>
 
-                                <button type="submit" class="btn btn-success">Modifier les données de l'ampoule</button>
+                                <button type="submit" class="btn btn-danger btn-lg">Supprimer l'ampoule n° <?= $row['id_ampoule'] ?></button>
                             </form>
                             </div>
                             <div class="modal-footer">
@@ -294,6 +307,7 @@ foreach($db->query("SELECT * FROM ampoules INNER JOIN table_position ON ampoules
             </div>
         </div>
     </div>
+
 <?php
 }
 ?>
